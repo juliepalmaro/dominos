@@ -1,5 +1,9 @@
-ion-menu-button {
+ion-menu-button, .quit {
     color: var(--ion-color-primary);
+}
+
+.quit {
+  margin-right: 10px;
 }
   
 ion-card-header {
