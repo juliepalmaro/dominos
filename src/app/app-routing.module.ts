@@ -15,10 +15,6 @@ const routes: Routes = [
     path: 'pizza',
     loadChildren: () => import('./pizza/pizza.module').then( m => m.PizzaPageModule)
   },
-  {
-    path: 'pizza/:id',
-    loadChildren: () => import('./pizza/pizza.module').then( m => m.PizzaPageModule)
-  },
 ];
 
 @NgModule({

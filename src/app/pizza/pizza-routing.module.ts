@@ -6,7 +6,11 @@ import { PizzaPage } from './pizza.page';
 const routes: Routes = [
   {
     path: '',
-    component: PizzaPage
+    loadChildren: () => import('./list-pizzas/list-pizzas.module').then( m => m.ListPizzasPageModule)
+  },
+  {
+    path: ':id',
+    loadChildren: () => import('./detail-pizza/detail-pizza.module').then( m => m.DetailPizzaPageModule)
   },
 ];
 
