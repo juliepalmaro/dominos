@@ -12,8 +12,13 @@
     <!-- <img src="./madison.jpg" /> -->
     <img src="{{pizza.picture}}">
     <ion-card-header>
-      <ion-card-subtitle>{{pizza.price}} €</ion-card-subtitle>
-      <ion-card-title>{{pizza.name}}</ion-card-title>
+      <div class="title">
+        <ion-card-subtitle>{{pizza.price}} €</ion-card-subtitle>
+        <ion-card-title>{{pizza.name}}</ion-card-title>
+      </div>
+      <ion-button>
+        <ion-icon name="add-outline"></ion-icon>
+      </ion-button>
     </ion-card-header>
     <ion-card-content>
       <ion-list>
