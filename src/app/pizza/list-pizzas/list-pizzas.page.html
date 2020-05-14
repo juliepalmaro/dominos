@@ -1,23 +1,23 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>Pizza</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Pizza</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card *ngFor="let pizza of pizzas" routerLink="/pizza/{{pizza.id}}">
-    <img src="{{pizza.photo}}">
-    <ion-card-header>
-      <div class="title">
-        <ion-card-subtitle>{{pizza.prix}} €</ion-card-subtitle>
-        <ion-card-title>{{pizza.nom}}</ion-card-title>
-      </div>
-      <ion-button>
-        <ion-icon name="add-outline"></ion-icon>
-      </ion-button>
-    </ion-card-header>
-  </ion-card>
+    <ion-card *ngFor="let pizza of pizzas">
+        <img src="{{pizza.photo}}">
+        <ion-card-header>
+            <div class="title" routerLink="/pizza/{{pizza.id}}">
+                <ion-card-subtitle>{{pizza.prix}} €</ion-card-subtitle>
+                <ion-card-title>{{pizza.nom}}</ion-card-title>
+            </div>
+            <ion-button (click)="addPizza(pizza)">
+                <ion-icon name="add-outline"></ion-icon>
+            </ion-button>
+        </ion-card-header>
+    </ion-card>
 </ion-content>

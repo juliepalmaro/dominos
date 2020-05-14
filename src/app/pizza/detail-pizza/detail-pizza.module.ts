@@ -14,9 +14,9 @@ import { PizzaService } from '../../services/pizza.service';
     CommonModule,
     FormsModule,
     IonicModule,
-    DetailPizzaPageRoutingModule
+    DetailPizzaPageRoutingModule,
   ],
   declarations: [DetailPizzaPage],
   providers: [PizzaService]
 })
-export class DetailPizzaPageModule {}
+export class DetailPizzaPageModule { }

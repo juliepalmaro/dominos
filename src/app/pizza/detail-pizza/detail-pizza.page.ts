@@ -5,6 +5,8 @@ import { PizzaService } from '../../services/pizza.service';
 import IPizza from '../../models/IPizza';
 import IIngredient from '../../models/IIngredient';
 import { IngredientService } from '../../services/ingredient.service';
+import { CartPage } from '../../cart/cart.page';
+import ICartItem from '../../models/ICartItem';
 
 @Component({
     selector: 'app-detail-pizza',
@@ -17,7 +19,9 @@ export class DetailPizzaPage implements OnInit {
     ingredients: IIngredient[];
 
     // Injection de dépendances
-    constructor(private activatedRoute: ActivatedRoute, private pizzaService: PizzaService, private ingredientService: IngredientService) {
+    constructor(private activatedRoute: ActivatedRoute,
+        private pizzaService: PizzaService,
+        private ingredientService: IngredientService) {
     }
 
     // Initialisation des variables
@@ -40,5 +44,22 @@ export class DetailPizzaPage implements OnInit {
         this.pizza.ingredients.forEach(async id => {
             this.ingredients.push(await this.ingredientService.get(id).toPromise());
         });
+    }
+
+    addPizza(pizza: IPizza) {
+        console.log('test');
+        let cart: ICartItem[] = JSON.parse(localStorage.getItem('cart'));
+
+        if (!cart) {
+            cart = [];
+        }
+
+        const index = cart.findIndex(x => x.pizza.id === pizza.id);
+        if (index === -1) {
+            cart.push({ pizza, quantity: 1 });
+        } else {
+            cart[index].quantity++;
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
     }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import Pizza from '../../models/Pizza';
 import { PizzaService } from '../../services/pizza.service';
 import IPizza from '../../models/IPizza';
+import ICartItem from '../../models/ICartItem';
 
 @Component({
     selector: 'app-list-pizzas',
@@ -16,4 +16,20 @@ export class ListPizzasPage implements OnInit {
         this.pizzas = await this.pizzaService.getAll().toPromise();
     }
 
+    addPizza(pizza: IPizza) {
+        console.log('test');
+        let cart: ICartItem[] = JSON.parse(localStorage.getItem('cart'));
+
+        if (!cart) {
+            cart = [];
+        }
+
+        const index = cart.findIndex(x => x.pizza.id === pizza.id);
+        if (index === -1) {
+            cart.push({ pizza, quantity: 1 });
+        } else {
+            cart[index].quantity++;
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }
 }

@@ -19,7 +19,7 @@
                 <ion-card-subtitle>{{pizza.prix}} €</ion-card-subtitle>
                 <ion-card-title>{{pizza.nom}}</ion-card-title>
             </div>
-            <ion-button>
+            <ion-button (click)="addPizza(pizza)">
                 <ion-icon name="add-outline"></ion-icon>
             </ion-button>
         </ion-card-header>

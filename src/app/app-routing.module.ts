@@ -9,11 +9,15 @@ const routes: Routes = [
   },
   {
     path: 'home/:id',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
   {
     path: 'pizza',
-    loadChildren: () => import('./pizza/pizza.module').then( m => m.PizzaPageModule)
+    loadChildren: () => import('./pizza/pizza.module').then(m => m.PizzaPageModule)
+  },
+  {
+    path: 'cart',
+    loadChildren: () => import('./cart/cart.module').then( m => m.CartPageModule)
   },
 ];
 
@@ -23,4 +27,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

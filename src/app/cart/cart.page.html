@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Panier</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card *ngFor="let item of cart">
+        <ion-card-header>
+            <img src="{{item.pizza.photo}}">
+            <div class="title" routerLink="/pizza/{{item.pizza.id}}">
+
+                <ion-card-subtitle>{{item.pizza.prix}} €</ion-card-subtitle>
+                <ion-card-title>{{item.pizza.nom}}</ion-card-title>
+            </div>
+            <ion-button class="del" (click)="deletePizza(item.pizza)">
+                <ion-icon name="trash-outline"></ion-icon>
+            </ion-button>
+            <ion-button (click)="addPizza(item.pizza)">
+                <ion-icon name="add-outline"></ion-icon>
+            </ion-button>
+            {{item.quantity}}
+            <ion-button (click)="removePizza(item.pizza)">
+                <ion-icon name="remove-outline"></ion-icon>
+            </ion-button>
+        </ion-card-header>
+    </ion-card>
+</ion-content>
