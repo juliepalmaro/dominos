@@ -1,9 +1,9 @@
 export default class Ingredient {
     id: string;
-    name: string;
+    nom: string;
 
-    constructor(id: string, name: string) {
+    constructor(id: string, nom: string) {
         this.id = id;
-        this.name = name;
+        this.nom = name;
     }
 }

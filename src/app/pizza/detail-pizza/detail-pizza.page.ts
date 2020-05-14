@@ -3,6 +3,8 @@ import Pizza from '../../models/Pizza';
 import { ActivatedRoute } from '@angular/router';
 import { PizzaService } from '../../services/pizza.service';
 import IPizza from '../../models/IPizza';
+import IIngredient from '../../models/IIngredient';
+import { IngredientService } from '../../services/ingredient.service';
 
 @Component({
     selector: 'app-detail-pizza',
@@ -12,32 +14,31 @@ import IPizza from '../../models/IPizza';
 export class DetailPizzaPage implements OnInit {
     pizza: IPizza;
     pizzaId: number;
+    ingredients: IIngredient[];
 
     // Injection de dépendances
-    constructor(private activatedRoute: ActivatedRoute, private pizzaService: PizzaService) {
+    constructor(private activatedRoute: ActivatedRoute, private pizzaService: PizzaService, private ingredientService: IngredientService) {
     }
 
     // Initialisation des variables
     async ngOnInit() {
         this.activatedRoute.params.subscribe((async params => {
             this.pizzaId = params.id;
-            // this.getOne(this.pizzaId);
-            this.pizza = await this.pizzaService.get(this.pizzaId).toPromise();
-            console.log('test : ' + this.pizza);
+            this.ingredients = [];
+
+            this.getOne(this.pizzaId);
         }));
     }
 
     async getOne(id: number) {
-        console.log('test');
-        //   this.pizzaService.get(idP)
-        //       .subscribe(pizza => this.pizza = pizza,
-        //           error => {
-        //               this.error = error;
-        //               this.loading = false;
-        //       }, () => {
-        //           this.loading = false;
-        //       });
         this.pizza = await this.pizzaService.get(id).toPromise();
-        console.log('get : ' + this.pizza);
+        // console.log('get : ' + this.pizza);
+        this.getIngredients();
+    }
+
+    getIngredients() {
+        this.pizza.ingredients.forEach(async id => {
+            this.ingredients.push(await this.ingredientService.get(id).toPromise());
+        });
     }
 }
