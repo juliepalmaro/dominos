@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Admin Ingredients</ion-title>
+        <ion-icon slot="end" name="add-circle" id="add" size="large"></ion-icon>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-list>
+        <ion-item-sliding *ngFor="let ingredient of ingredients">
+            <ion-item>
+                <ion-label>
+                    {{ingredient.nom}}
+                </ion-label>
+                <ion-icon slot="end" name="create-outline" id="modify"></ion-icon>
+                <ion-item-options side="end">
+                    <ion-item-option color="danger">Supprimer</ion-item-option>
+                </ion-item-options>
+            </ion-item>
+        </ion-item-sliding>
+    </ion-list>
+</ion-content>
