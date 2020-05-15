@@ -3,9 +3,8 @@
         <ion-buttons slot="start">
             <ion-menu-button></ion-menu-button>
         </ion-buttons>
-        <!-- <ion-buttons class="quit" slot="end" routerLink="/pizza">X</ion-buttons> -->
         <ion-buttons slot="end">
-            <ion-back-button defaultHref="/pizza" text="X" icon=""></ion-back-button>
+            <ion-back-button defaultHref="/pizzas" text="X" icon=""></ion-back-button>
         </ion-buttons>
         <ion-title>Pizza</ion-title>
     </ion-toolbar>
@@ -19,9 +18,7 @@
                 <ion-card-subtitle>{{pizza.prix}} €</ion-card-subtitle>
                 <ion-card-title>{{pizza.nom}}</ion-card-title>
             </div>
-            <ion-button (click)="addPizza(pizza)">
-                <ion-icon name="add-outline"></ion-icon>
-            </ion-button>
+            <ion-icon name="add-circle" (click)="addPizza(pizza)" id="add"></ion-icon>
         </ion-card-header>
         <ion-card-content>
             <ion-list>
@@ -29,7 +26,7 @@
                     <ion-label>Les ingrédients</ion-label>
                 </ion-list-header>
                 <ion-item *ngFor="let ingredient of ingredients">
-                    <ion-label>{{ingredient.nom}}</ion-label>
+                    <ion-label *ngIf="ingredient">{{ingredient.nom}}</ion-label>
                 </ion-item>
             </ion-list>
         </ion-card-content>

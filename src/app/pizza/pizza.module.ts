@@ -6,7 +6,6 @@ import { IonicModule } from '@ionic/angular';
 
 import { PizzaPageRoutingModule } from './pizza-routing.module';
 
-import { PizzaPage } from './pizza.page';
 
 @NgModule({
   imports: [
@@ -15,6 +14,5 @@ import { PizzaPage } from './pizza.page';
     IonicModule,
     PizzaPageRoutingModule
   ],
-  declarations: [PizzaPage]
 })
 export class PizzaPageModule { }

@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { PizzaPage } from './pizza.page';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./list-pizzas/list-pizzas.module').then( m => m.ListPizzasPageModule)
+    loadChildren: () => import('./list-pizzas/list-pizzas.module').then(m => m.ListPizzasPageModule)
   },
   {
     path: ':id',
-    loadChildren: () => import('./detail-pizza/detail-pizza.module').then( m => m.DetailPizzaPageModule)
+    loadChildren: () => import('./detail-pizza/detail-pizza.module').then(m => m.DetailPizzaPageModule)
   },
 ];
 
@@ -18,4 +17,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class PizzaPageRoutingModule {}
+export class PizzaPageRoutingModule { }

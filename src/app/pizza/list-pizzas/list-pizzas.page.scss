@@ -1,7 +1,8 @@
-ion-menu-button {
+ion-menu-button,
+#add {
     color: var(--ion-color-primary);
 }
-  
+
 img {
     width: 100%;
     max-width: 200px;
@@ -12,6 +13,7 @@ img {
     float: left;
 }
 
-ion-button {
+#add {
     float: right;
+    font-size: xxx-large;
 }
