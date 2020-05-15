@@ -1,5 +1,6 @@
 ion-menu-button,
-#add {
+#add,
+#cart {
     color: var(--ion-color-primary);
 }
 
@@ -16,4 +17,8 @@ img {
 #add {
     float: right;
     font-size: xxx-large;
+}
+
+#cart {
+    margin-right: 3%;
 }

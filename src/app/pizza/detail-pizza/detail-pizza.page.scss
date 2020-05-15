@@ -1,11 +1,14 @@
 ion-menu-button,
-.quit,
-#add {
+#quit,
+#add,
+#cart {
     color: var(--ion-color-primary);
 }
 
-.quit {
+#quit {
     margin-right: 10px;
+    margin-top: 10px;
+    float: right;
 }
 
 ion-card-header {
@@ -26,4 +29,8 @@ img {
 #add {
     float: right;
     font-size: xxx-large;
+}
+
+#cart {
+    margin-right: 3%;
 }

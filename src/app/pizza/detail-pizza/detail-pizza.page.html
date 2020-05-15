@@ -3,14 +3,17 @@
         <ion-buttons slot="start">
             <ion-menu-button></ion-menu-button>
         </ion-buttons>
-        <ion-buttons slot="end">
+        <!-- <ion-buttons slot="end">
             <ion-back-button defaultHref="/pizzas" text="X" icon=""></ion-back-button>
-        </ion-buttons>
+        </ion-buttons> -->
         <ion-title>Pizza</ion-title>
+        <ion-icon slot="end" name="cart" id="cart" size="large" routerLink="/cart"></ion-icon>
+
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
+    <ion-text routerLink="/pizzas" id="quit" router-direction="back">X</ion-text>
     <ion-card *ngIf="pizza">
         <img src="{{pizza.photo}}">
         <ion-card-header>
