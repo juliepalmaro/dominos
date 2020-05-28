@@ -29,6 +29,7 @@ export class CartPage implements OnInit {
             cart[index].quantity++;
         }
         localStorage.setItem('cart', JSON.stringify(cart));
+        location.reload();
     }
 
     removePizza(pizza: IPizza) {
@@ -47,6 +48,7 @@ export class CartPage implements OnInit {
         }
 
         localStorage.setItem('cart', JSON.stringify(cart));
+        location.reload();
     }
 
     deletePizza(pizza: IPizza) {
@@ -62,6 +64,7 @@ export class CartPage implements OnInit {
         }
 
         localStorage.setItem('cart', JSON.stringify(cart));
+        location.reload();
     }
 
 }
