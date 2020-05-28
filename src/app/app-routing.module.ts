@@ -27,6 +27,18 @@ const routes: Routes = [
     path: 'admin/ingredients',
     loadChildren: () => import('./admin/list-ingredients/list-ingredients.module').then(m => m.ListIngredientsPageModule)
   },
+  {
+    path: 'admin/pizzas/:id',
+    loadChildren: () => import('./admin/form-pizza/form-pizza.module').then(m => m.FormPizzaPageModule)
+  },
+  {
+    path: 'admin/ingredients/form/:id',
+    loadChildren: () => import('./admin/form-ingredient/form-ingredient.module').then(m => m.FormIngredientPageModule)
+  },
+  {
+    path: 'admin/ingredients/form',
+    loadChildren: () => import('./admin/form-ingredient/form-ingredient.module').then(m => m.FormIngredientPageModule)
+  },
 ];
 
 @NgModule({

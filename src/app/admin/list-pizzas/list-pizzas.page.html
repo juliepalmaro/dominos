@@ -18,8 +18,9 @@
                 <ion-label>
                     {{pizza.nom}}
                 </ion-label>
-                <ion-icon slot="end" name="create-outline" id="modify"></ion-icon>
-                <ion-item-options side="end">
+                <ion-icon slot="end" name="create-outline" id="modify" routerLink="/admin/pizzas/{{pizza.id}}">
+                </ion-icon>
+                <ion-item-options slot="end">
                     <ion-item-option color="danger">Supprimer</ion-item-option>
                 </ion-item-options>
             </ion-item>
