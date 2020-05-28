@@ -63,4 +63,17 @@ export class IngredientService {
                 })
             );
     }
+
+    delete(ingredient: IIngredient) {
+        return this.http.delete<IIngredient>(this.url + '/' + ingredient.id)
+            .pipe(
+                map(value => {
+                    if (value) {
+                        return value;
+                    } else {
+                        throw new Error('Aucun ingrédient trouvé');
+                    }
+                })
+            );
+    }
 }

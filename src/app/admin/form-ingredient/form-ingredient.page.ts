@@ -36,6 +36,6 @@ export class FormIngredientPage implements OnInit {
         } else {
             await this.ingredientService.create(this.ingredient).toPromise();
         }
-
+        location.reload();
     }
 }

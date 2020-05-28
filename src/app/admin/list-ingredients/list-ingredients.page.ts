@@ -16,4 +16,12 @@ export class ListIngredientsPage implements OnInit {
         this.ingredients = await this.ingredientService.getAll().toPromise();
     }
 
+    async delIngredient(id: number) {
+        console.log(id);
+        const ingredient = await this.ingredientService.get(id).toPromise();
+        console.log('ingredient' + ingredient.nom);
+        await this.ingredientService.delete(ingredient).toPromise();
+        location.reload();
+    }
+
 }
